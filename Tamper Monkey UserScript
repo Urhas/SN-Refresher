@@ -1,0 +1,64 @@
+// ==UserScript==
+// @name         Auto Refresh
+// @version      1.1
+// @description  Automaticly Refreshes Service Now Widgets
+// @author       Urhas
+// @match        https://*.service-now.com/*dashboard.do*
+// ==/UserScript==
+
+//Default Refresh Status on Page Load
+var RefreshStatus = "ON" //ON or OFF
+
+//Widget Refresh time in MS
+var RefreshTime = "15000" //1000 = 1 second
+
+//Creates Button
+var ToggleRefresh = document.createElement('button');
+ToggleRefresh.id = "Auto_Refresh_Btn"
+ToggleRefresh.className = 'form_action_button header action_context btn btn-default';
+ToggleRefresh.style.color = "#303a46"
+ToggleRefresh.style.background = "rgba(255, 255, 255, 0.45)"
+ToggleRefresh.style.borderColor = "#bec1c6"
+
+switch(RefreshStatus){
+         case "OFF":
+             ToggleRefresh.innerHTML = "Enable Auto Refresh";
+             break;
+         case "ON":
+             ToggleRefresh.innerHTML = "Disable Auto Refresh"
+             break;
+     }
+
+//Adds Toggle on click event
+ToggleRefresh.onclick = function(){
+     switch(RefreshStatus){
+         case "OFF":
+             RefreshStatus = "ON";
+             ToggleRefresh.innerHTML = "Disable Auto Refresh";
+             break;
+         case "ON":
+             RefreshStatus = "OFF";
+             ToggleRefresh.innerHTML = "Enable Auto Refresh"
+             break;
+     }
+};
+
+//Adds button to webpage
+(document.querySelector('#snCanvasSkipLinks')).insertAdjacentElement('beforebegin', ToggleRefresh);
+
+//Runs Refeesh check
+var i
+setInterval(function(){
+    switch(RefreshStatus){
+        case "OFF":
+            //console.log("Refresh Skipped");
+            break;
+        case "ON":
+            var x = document.getElementsByClassName("btn header-icon icon-refresh").length
+            console.log("Running Refresh on " + x + " Widgets");
+            for (i = 0; i < x; i++) {
+                document.getElementsByClassName("btn header-icon icon-refresh")[i].click()
+            }
+            break;
+    }
+}, RefreshTime);
