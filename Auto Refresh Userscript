@@ -51,7 +51,7 @@ var i
 setInterval(function(){
     switch(RefreshStatus){
         case "OFF":
-            //console.log("Refresh Skipped");
+            console.log("Refresh Skipped");
             break;
         case "ON":
             var x = document.getElementsByClassName("btn header-icon icon-refresh").length
@@ -60,6 +60,7 @@ setInterval(function(){
                 document.getElementsByClassName("btn header-icon icon-refresh")[i].click()
             } 
            var x = document.getElementsByClassName("tooltip fade top in").length
+           console.log("Clearing " + x + " Tooltips")
            for (i = 0; i < x; i++) {
                document.getElementsByClassName("tooltip fade top in")[i].remove()
            }
