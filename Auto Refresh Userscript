@@ -51,17 +51,17 @@ var i
 setInterval(function(){
     switch(RefreshStatus){
         case "OFF":
-            console.log("Refresh Skipped");
+            //console.log("Refresh Skipped");
             break;
         case "ON":
-            var x = document.getElementsByClassName("btn header-icon icon-refresh").length
-            console.log("Running Refresh on " + x + " Widgets");
-            for (i = 0; i < x; i++) {
+            var widgetcount = document.getElementsByClassName("btn header-icon icon-refresh").length
+            console.log("Running Refresh on " + widgetcount + " Widgets");
+            for (i = 0; i < widgetcount; i++) {
                 document.getElementsByClassName("btn header-icon icon-refresh")[i].click()
-            } 
-           var x = document.getElementsByClassName("tooltip fade top in").length
-           console.log("Clearing " + x + " Tooltips")
-           for (i = 0; i < x; i++) {
+            }
+           var tooltipcount = document.getElementsByClassName("tooltip fade top in").length
+           console.log("Clearing " + tooltipcount + " Tooltips");
+           for (i = 0; i < tooltipcount; i++) {
                document.getElementsByClassName("tooltip fade top in")[i].remove()
            }
             break;
