@@ -1,9 +1,7 @@
 # SN-Refresher
 Widget Refresher for Service Now
 
-Install URLs 
-Stable  : https://github.com/Urhas/SN-Refresher/raw/master/Tamper%20Monkey%20UserScript
-Dev     : https://github.com/Urhas/SN-Refresher/raw/Dev/Auto%20Refresh%20Userscript 
+Install URLs  Stable  : https://github.com/Urhas/SN-Refresher/raw/master/Tamper%20Monkey%20UserScript Dev     : https://github.com/Urhas/SN-Refresher/raw/Dev/Auto%20Refresh%20Userscript 
 
 Installation Instructions:
 1. Open Tampermonkey Dashboard
